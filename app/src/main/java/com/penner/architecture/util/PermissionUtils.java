@@ -1,6 +1,5 @@
 package com.penner.architecture.util;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,7 +18,7 @@ public final class PermissionUtils {
 
     public static boolean checkPermisssion(Activity activity, String permission, String dialogMessage, int requestCode, boolean finished) {
         if (!hasPermission(activity, permission)) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_PHONE_STATE)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
                 createPermissionDialog(activity, dialogMessage, finished);
             } else {
                 ActivityCompat.requestPermissions(activity, new String[]{permission}, requestCode);
